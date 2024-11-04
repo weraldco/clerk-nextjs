@@ -3,8 +3,8 @@ import { auth } from '@clerk/nextjs/server';
 import Link from 'next/link';
 import React from 'react';
 
-const Navbar = async () => {
-	const { userId } = await auth();
+const Navbar = () => {
+	const { userId } = auth();
 	return (
 		<div className="flex flex-1 flex-row justify-between px-4 py-4 bg-slate-950 text-white">
 			<Link

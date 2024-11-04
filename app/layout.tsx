@@ -4,8 +4,8 @@ import type { Metadata } from 'next';
 
 import localFont from 'next/font/local';
 
-import LoadingState from './components/LoadingState';
-import Navbar from './components/Navbar';
+import LoadingState from '@/components/LoadingState';
+import Navbar from '@/components/Navbar';
 import './globals.css';
 
 const geistSans = localFont({

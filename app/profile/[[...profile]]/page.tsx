@@ -3,16 +3,21 @@ import { auth, currentUser } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 import React from 'react';
 
-const ProfilePage = async () => {
-	const { userId } = await auth();
+const Profile = async () => {
+	const { userId } = auth();
+	const isAuth = !!userId;
 	const user = await currentUser();
-	if (!userId) redirect('/');
+
+	if (!isAuth) {
+		redirect('/');
+	}
+
 	return (
-		<div className="flex flex-col justify-center items-center h-full">
-			<h1>{user?.username}</h1>
+		<div className="flex flex-col items-center justify-center mt-8">
+			<h1 className="text-2xl">{user?.username}</h1>
 			<UserProfile />
 		</div>
 	);
 };
 
-export default ProfilePage;
+export default Profile;

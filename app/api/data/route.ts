@@ -1,17 +1,14 @@
 import { auth, currentUser } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
 
-export const GET = async () => {
-	const { userId } = await auth();
+export async function GET() {
+	const { userId } = auth();
 	const user = await currentUser();
+
 	if (!userId) {
-		return NextResponse.json(
-			{
-				message: 'Not Authenticated',
-			},
-			{ status: 401 }
-		);
+		return NextResponse.json({ message: 'Not Authenticated' }, { status: 401 });
 	}
+
 	return NextResponse.json(
 		{
 			message: 'Authenticated',
@@ -19,4 +16,4 @@ export const GET = async () => {
 		},
 		{ status: 200 }
 	);
-};
+}
