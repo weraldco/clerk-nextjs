@@ -1,9 +1,4 @@
-import {
-	ClerkLoaded,
-	ClerkLoading,
-	ClerkProvider,
-	UserButton,
-} from '@clerk/nextjs';
+import { ClerkLoaded, ClerkLoading, ClerkProvider } from '@clerk/nextjs';
 
 import type { Metadata } from 'next';
 
